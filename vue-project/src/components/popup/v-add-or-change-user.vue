@@ -39,7 +39,7 @@
               <small
                 class="invalid"
                 v-if="$v.name.$dirty && !$v.name.required"
-              >TThe Name field must be changed</small>
+              >Name field must be changed</small>
               <small
                 class="invalid"
                 v-if="$v.name.$dirty && !$v.name.minLength"
@@ -62,7 +62,7 @@
               <small
                 class="invalid"
                 v-if="$v.surname.$dirty && !$v.surname.required"
-              >The Surname field must be changed</small>
+              >Surname field must be changed</small>
               <small
                 class="invalid"
                 v-if="$v.surname.$dirty && !$v.surname.minLength"
@@ -119,7 +119,7 @@
               <small
                 class="invalid"
                 v-if="$v.email.$dirty && !$v.email.required"
-              >The Email field must be changed</small>
+              >Email field must be changed</small>
               <small
                 class="invalid"
                 v-else-if="$v.email.$dirty && !$v.email.email"
