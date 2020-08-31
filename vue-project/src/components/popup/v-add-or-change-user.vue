@@ -15,10 +15,10 @@
           <i
             type="button"
             aria-label="Close"
-            class="close float-right"
+            class="close float-right closeFont"
             @click="closePopup"
           >
-            ×
+            <span aria-hidden="true">&times;</span>
           </i>
         </div>
       </template>
@@ -32,14 +32,14 @@
             <div class="offset-1 col-7">
               <input class="form-control"
                      type="text"
-                     :placeholder="propsName ? propsName : 'type your Name...'"
+                     :placeholder="propsName ? propsName : 'Type your Name...'"
                      id="text-input-name"
                      v-model="name"
               />
               <small
                 class="invalid"
                 v-if="$v.name.$dirty && !$v.name.required"
-              >The Name field must not be empty</small>
+              >TThe Name field must be changed</small>
               <small
                 class="invalid"
                 v-if="$v.name.$dirty && !$v.name.minLength"
@@ -55,14 +55,14 @@
             <div class="offset-1 col-7">
               <input class="form-control"
                      type="text"
-                     :placeholder="propsSurname ? propsSurname : 'type your Surname...'"
+                     :placeholder="propsSurname ? propsSurname : 'Type your Surname...'"
                      id="text-input-surname"
                      v-model="surname"
               />
               <small
                 class="invalid"
                 v-if="$v.surname.$dirty && !$v.surname.required"
-              >The Surname field must not be empty</small>
+              >The Surname field must be changed</small>
               <small
                 class="invalid"
                 v-if="$v.surname.$dirty && !$v.surname.minLength"
@@ -85,7 +85,7 @@
               <small
                 class="invalid"
                 v-if="$v.birthDate.$dirty && !$v.birthDate.required"
-              >Birth Date field must not be empty</small>
+              >Birth Date field must be changed</small>
             </div>
           </div>
           <div class="form-group row">
@@ -100,7 +100,7 @@
               <small
                 class="invalid"
                 v-if="$v.phone.$dirty && !$v.phone.required"
-              >Phone number field must not be empty</small>
+              >Phone number field must be changed</small>
               <small
                 class="invalid"
                 v-if="($v.phone.$dirty && !$v.phone.minLength)"
@@ -113,13 +113,13 @@
               <input type="email"
                      class="form-control centered"
                      id="email"
-                     :placeholder="propsEmail ? propsEmail : 'type your email...'"
+                     :placeholder="propsEmail ? propsEmail : 'Type your Email...'"
                      v-model="email"
               />
               <small
                 class="invalid"
                 v-if="$v.email.$dirty && !$v.email.required"
-              >The Email field must not be empty</small>
+              >The Email field must be changed</small>
               <small
                 class="invalid"
                 v-else-if="$v.email.$dirty && !$v.email.email"
@@ -147,7 +147,7 @@
 </template>
 
 <script>
-  import {BModal, BButton, VBModal} from 'bootstrap-vue'
+  import {BModal, BButton} from 'bootstrap-vue'
   import {email, required, integer, alpha, minLength, maxLength} from 'vuelidate/lib/validators'
 
   export default {
@@ -169,7 +169,7 @@
         createUpdate: null
       }
     },
-    props:{
+    props: {
       titleValue: String,
       propsName: String,
       propsSurname: String,
@@ -233,6 +233,10 @@
 <style scoped>
   .invalid {
     color: tomato;
+  }
+
+  .closeFont {
+    font-family: Arial;
   }
 
   .dateOfBirth {

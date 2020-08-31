@@ -46,7 +46,7 @@
       }
     },
     methods: {
-      countPages(){
+      countPages() {
         return (Math.ceil(this.users.length / this.itemInPages))
       },
       setValue(value) {

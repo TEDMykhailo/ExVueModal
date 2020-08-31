@@ -30,7 +30,7 @@
 </template>
 
 <script>
-  import {BModal, BButton, VBModal} from 'bootstrap-vue'
+  import {BModal, BButton} from 'bootstrap-vue'
 
   export default {
     name: "v-delete",
@@ -39,9 +39,9 @@
       surname: String,
       index: Number
     },
-    data() {
-      return {}
-    },
+    // data() {
+    //   return {}
+    // },
     components: {
       'b-modal': BModal,
       'b-button': BButton,
@@ -61,9 +61,6 @@
       disagree() {
         this.hideModal()
       }
-    },
-    beforeMount() {
-      // console.log(this.title)
     },
   }
 </script>

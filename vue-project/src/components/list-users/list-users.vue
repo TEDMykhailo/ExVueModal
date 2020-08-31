@@ -13,25 +13,25 @@
         <th scope="col" style="width: 150px">Delete</th>
       </tr>
       </thead>
-        <v-user
-          v-for="(user, index) in value"
-          :key="index"
-          :index="index"
-          :name="user.name"
-          :surname="user.surname"
-          :birthDate="user.birthDate"
-          :phone="user.phone"
-          :email="user.email"
-          :createUpdate="user.createUpdate"
-          @get-item-delete="getItemDelete($event)"
-          @get-item-changed="getItemChanged($event)"
-        />
+      <v-user
+        v-for="(user, index) in value"
+        :key="index"
+        :index="index"
+        :name="user.name"
+        :surname="user.surname"
+        :birthDate="user.birthDate"
+        :phone="user.phone"
+        :email="user.email"
+        :createUpdate="user.createUpdate"
+        @get-item-delete="getItemDelete($event)"
+        @get-item-changed="getItemChanged($event)"
+      />
     </table>
   </div>
 </template>
 
 <script>
-  import { BModal } from 'bootstrap-vue'
+  import {BModal} from 'bootstrap-vue'
 
   import VUser from "../user/user";
 
@@ -56,17 +56,14 @@
       hideModal() {
         this.$refs['my-modal'].hide()
       },
-      getItemDelete(value){
+      getItemDelete(value) {
         this.$emit("is-item-delete", value)
         return value;
       },
-      getItemChanged(value){
+      getItemChanged(value) {
         this.$emit("is-item-changed", value)
         return value;
       }
-    },
-    beforeMount() {
-      // console.log(this.value)
     },
   }
 </script>
