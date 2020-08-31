@@ -19,11 +19,6 @@
         {{p}}
       </button>
     </div>
-    <div>
-      <p>
-        {{pagination.startIndex + 1}} to {{pagination.endIndex + 1}}
-      </p>
-    </div>
   </div>
 </template>
 
@@ -43,7 +38,7 @@
     data() {
       return {
         isVisible: false,
-        addUserTitle: 'Add',
+        addUserTitle: 'Add User',
         itemInPages: 10,
         pagination: {},
         users: [],
@@ -51,11 +46,15 @@
       }
     },
     methods: {
+      countPages(){
+        return (Math.ceil(this.users.length / this.itemInPages))
+      },
       setValue(value) {
         this.users.unshift(value);
-
+        this.setPage(this.countPages())
         localStorage.setItem('users', JSON.stringify(this.users));
         this.paginationUsers = this.paginate();
+
       },
       deleteItem(id) {
         this.users = this.users.filter((item, index) => index !== id)

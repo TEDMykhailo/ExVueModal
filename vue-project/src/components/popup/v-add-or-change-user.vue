@@ -5,7 +5,7 @@
       @click="showModal"
       class="btn btn-outline-primary butt"
       variant="outline-primary"
-    >{{titleValue + ' user'}}
+    >{{titleValue}}
     </b-button>
 
     <b-modal ref="my-modal" hide-footer>
